@@ -19,7 +19,7 @@ HOMEPAGE="https://www.froxlor.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="awstats bind +dovecot fcgid fpm ftpquota lighttpd +log mailquota nginx pdns pureftpd quota ssl"
+IUSE="awstats goaccess webalizer bind +dovecot fcgid fpm ftpquota lighttpd +log mailquota nginx pdns pureftpd quota ssl"
 
 DEPEND="
 	virtual/mysql
@@ -33,10 +33,13 @@ DEPEND="
 		net-ftp/proftpd[mysql,ssl=]
 		ftpquota? ( net-ftp/proftpd[softquota] )
 	)
+	goaccess? (
+		net-analyzer/goaccess 
+	)
 	awstats? (
 		www-misc/awstats
 	)
-	!awstats? (
+	webalizer? (
 		app-admin/webalizer
 	)
 	bind? ( net-dns/bind )
